@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link class='navItem' to="/">Home</router-link> |
+      <router-link class='navItem' to="/about">General Info</router-link> |
+      <router-link class='navItem' to="/">Data Analytics</router-link> |
+      <router-link class='navItem' to="/">Vaccine Card</router-link>
     </div>
     <router-view/>
   </div>
@@ -14,19 +16,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
-  padding: 30px;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(17, 112, 253);
+  text-align: left;
+  box-shadow: 0px 1px 5px black;
 }
 
-#nav a {
+.navItem {
   font-weight: bold;
-  color: #2c3e50;
+  padding:10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: rgb(17, 112, 253);
+  text-decoration: none;
+  color: black;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.navItem:hover {
+  background-color: rgb(15, 100, 228);
 }
 </style>
