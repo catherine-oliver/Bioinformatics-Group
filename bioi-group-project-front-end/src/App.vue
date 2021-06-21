@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link class='navItem' to="/">Home</router-link> |
-      <router-link class='navItem' to="/about">General Info</router-link> |
+      <router-link class='navItem' to="/info">General Info</router-link> |
       <router-link class='navItem' to="/">Data Analytics</router-link> |
       <router-link class='navItem' to="/">Vaccine Card</router-link>
     </div>
