@@ -3,14 +3,14 @@
     <div id="nav">
       <router-link class='navItem' to="/">Home</router-link> |
       <router-link class='navItem' to="/info">General Info</router-link> |
-      <router-link class='navItem' to="/">Data Analytics</router-link> |
+      <router-link class='navItem' to="/data-visualization">Data Visualization</router-link> |
       <router-link class='navItem' to="/">Vaccine Card</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
