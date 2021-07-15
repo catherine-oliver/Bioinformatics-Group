@@ -43,18 +43,18 @@ This section will be added in the future and will allow users to create an accou
 
 ## Release Notes
 ### 07/15/2021
-- Updated README Documentation with descrition of application
-- Created Data visualization Page
-- Create interactive SVG Map of the United states
+- Updated README Documentation with description of application
+- Created data visualization Page
+- Create interactive SVG Map of the United States
 - Developed client side manipulation of data and prepartion of HTTP request
 - Created database insert scripts 
 - Installed MySQL and created database on AWS server
-- Developed API functionality to recieve GET request, parse parameters, and query the database
+- Developed API functionality to receive GET request, parse parameters, and query the database
 - Created unit tests for
    - Loading of SVG Map on visualization page
    - Validating submission without state does not send a request
    - Validating request submission with valid parameters
-   - Validating refelection of drop-down selection in GET parameters
+   - Validating reflection of drop-down selection in GET parameters
 ### 06/24/2021
 - Updated README Documentation with description of application
 - Created Vue project structure for front-end
