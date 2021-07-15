@@ -6,29 +6,23 @@
             <USAMap class = 'map' v-on:map-clicked='onMapClick'/>
         </div>
         <div class='dataContainer'>
-            <label class = "dataMainTitle">Number of Vaccinated Individuals: </label>
+            <label class = "dataMainTitle">Number of Vaccinated Individuals in {{this.vaccineParams.state}}: </label>
             <br>
-            <label class = "dataCount">{{this.vaxData.count}}</label>
+            <label class = "dataCount">{{this.vaxData.totalCount}}</label>
+            <br>
             <br>
             <br>
             <div class = "labelRow">
-                <span v-if="vaxData.state != 'None'">
-                    <label class="dataSubtitle">State:</label>
-                    <label class="dataLabel">{{this.vaxData.state}}</label>
+                <span v-if="vaccineParams.vaxType != 'All'">
+                    <label class="dataSubtitle">Number who recieved the {{this.vaccineParams.vaxType}} Vacine: </label>
+                    <label class="dataLabel">{{this.vaxData.vaxTypeCount}}</label>
                 </span> 
             </div>
             <br>
             <div class = "labelRow">
-                <span v-if="vaxData.vaxType != 'All'">
-                    <label class="dataSubtitle">Vaccine Type: </label>
-                    <label class="dataLabel">{{this.vaxData.vaxType}}</label>
-                </span> 
-            </div>
-            <br>
-            <div class = "labelRow">
-                <span v-if="vaxData.ageRange != 'None'">
-                    <label class="dataSubtitle">Age Range: </label>
-                    <label class="dataLabel">{{this.vaxData.ageRange}}</label>
+                <span v-if="vaccineParams.ages != 'None'">
+                    <label class="dataSubtitle">Ages {{this.vaccineParams.ages}}: </label>
+                    <label class="dataLabel">{{this.vaxData.ageCount}}</label>
                 </span> 
             </div>
             <br>
@@ -58,9 +52,9 @@
              <label class="formLabel">Vaccine Manufacturer: </label>
              <select class="formSelect" id = "manufacturer" name="manufacturer" v-model="vaxType">
                  <option value="All">All</option>
-                 <option value='johnson'>Johnson & Johnson</option>
-                 <option value='moderna'>Moderna</option>
-                 <option value='pfizer'>Pfizer</option>
+                 <option value='Johnson & Johnson'>Johnson & Johnson</option>
+                 <option value='Moderna'>Moderna</option>
+                 <option value='Pfizer'>Pfizer</option>
              </select>
 
              <button class="formButton" id='formButton' type="submit">Submit</button>
@@ -80,39 +74,46 @@ export default {
   data () {
       return {
           state: "None",
+          stateAbbr: "NA",
           ages: "None",
           vaxType: "All",
-          vaxData: {
-              state: 'Test',
-              count: '1000',
+          vaccineParams: {
+              state: '',
               vaxType: 'All',
-              ageRange: "None"
+              ages: 'None'
+          },
+          vaxData: {
+              totalCount: '',
+              vaxTypeCount: '',
+              ageCount: ''
           },
       }
   },
   methods: {
       onMapClick: function(attr){
-          console.log(attr)
-          console.log(attr.title);
+          this.stateAbbr = attr.mapId.substr(3, 5);
           this.state = attr.title;
       },
       submitForm() {
-          var vaccineParams = {
-              state: this.state,
-              ages: this.ages,
-              vaxType: this.vaxType,
-          };
-
-          dataVis.getVaccineData(vaccineParams)
-          .then(res => {
-              this.$set(this, "vaxData", res.data)
-          })
-          .catch(error => {
+          if (this.stateAbbr) {
+            this.vaccineParams.state = this.stateAbbr;
+            this.vaccineParams.ages = this.ages;
+            this.vaccineParams.vaxType = this.vaxType;
+    
+            dataVis.getVaccineData(this.vaccineParams)
+            .then((res => {
+                console.log(res.data);
+                this.vaxData.totalCount = res.data[0];
+                this.vaxData.ageCount = res.data[1];
+                this.vaxData.vaxTypeCount = res.data[2];
+            }).bind(this))
+            .catch(error => {
               //Do nothing
               console.log(error)
-          });
+            });
 
           this.clearForm();
+          }
       },
       clearForm() {
           this.clearMap()
