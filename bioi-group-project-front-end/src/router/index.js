@@ -21,6 +21,16 @@ const routes = [
     path: '/data-visualization',
     name: 'data-visualization',
     component: () => import(/* webpackChunkName: "DataVisualization" */ '../components/DataVisualization.vue')
+  },
+  {
+    path: '/create-user',
+    name: 'create-user',
+    component: () => import(/* webpackChunkName: "DataVisualization" */ '../components/CreateUser.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "DataVisualization" */ '../components/UserLogin.vue')
   }
 ]
 

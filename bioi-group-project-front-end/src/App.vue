@@ -4,7 +4,8 @@
       <router-link class='navItem' to="/">Home</router-link> |
       <router-link class='navItem' to="/info">General Info</router-link> |
       <router-link class='navItem' to="/data-visualization">Data Visualization</router-link> |
-      <router-link class='navItem' to="/">Vaccine Card</router-link>
+      <router-link class='navItem' to="/create-user">Create User</router-link> |
+      <router-link class='navItem' to="/login">Vaccine Card View</router-link>
     </div>
     <router-view/>
   </div>
