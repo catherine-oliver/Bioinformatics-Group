@@ -23,6 +23,7 @@ Now the front-end application can be accessed from the url **localhost:8080**
 The back-end api can be started by navigating to the back-end directory, and running:
 
 ```
+source flaskenv/Scripts/activate
 set FLASK_APP=api.py
 python -m flask run
 ```
@@ -38,10 +39,27 @@ The data visualization page allows users to retrieve data regarding vaccinated i
 
 ### Vaccine Card Storage
 
-This section will be added in the future and will allow users to create an account tied to their vaccine card. Once their accound has been created, the users can log in and view their vaccine card image.
+The vaccine card storage functionality consists of 3 pages that work together to allow individuals to store and retrieve their vaccine card. The image itself is tied to an account. A user can create an account on the Create Account page which requires a username, an 8+ character long password, and an image file to be submitted. Next, a user can login using their username and password on the login page. Upon a successful login, the user will be directed to the vaccine card viewing page where their vaccine will be displayed.
 
 
 ## Release Notes
+### 07/29/2021
+- Updated README Documentation with description of application
+- Created the account create page
+- Created the login page
+- Created the vaccine card viewing page
+- Developed the client side manipulation and HTTP request methods
+- Created API handler functions for creating a user, loging in, and grabbing a vaccine card
+- Developed a user authentication system using JSON Web Token
+- Created the User table in the datbase
+- Created unite tests for
+   - Loading the Content of the login page
+   - Loading the content of the account creation page
+   - Validating the client side variables reflect what the user entered in input fields including:
+     - The username field on the login and account creation pages
+     - The password field on the login and account creation pages
+   - Valdiating that entering a password less than 8 characters triggers and error message on the login and account creation pages
+   - Validating that a adding a form error for the account creation page updates the HTML
 ### 07/15/2021
 - Updated README Documentation with description of application
 - Created data visualization Page
