@@ -31,6 +31,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import(/* webpackChunkName: "DataVisualization" */ '../components/UserLogin.vue')
+  },
+  {
+    path: '/card',
+    name: 'CardView',
+    component: () => import(/* webpackChunkName: "CardView" */ '../components/CardView.vue')
   }
 ]
 

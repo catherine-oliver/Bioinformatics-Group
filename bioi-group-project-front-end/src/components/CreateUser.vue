@@ -2,6 +2,7 @@
     <div class='formContainer'>
         <h1 class="sectionTitle">Create User</h1>
         <form @submit.prevent='submitForm'>
+            <span class='validForm' v-if='msg.formSuccess'>{{msg.formSuccess}}</span>
             <span v-if='msg.formError'>{{msg.formError}}</span>
             <input name='username' type='text' v-model='username' placeholder="Enter Username" required>
             <span v-if='msg.password'>{{msg.password}}</span>
@@ -29,7 +30,7 @@ export default {
     },
     watch: {
         password(value) {
-            if (value.length < 8) {
+            if (value.length < 8 && value.length != 0) {
                 this.msg['password'] = 'Password must be 8 characters long';
             }
             else {
@@ -43,19 +44,39 @@ export default {
             this.cardImage = this.$refs.card.files[0];
         },
         submitForm() {
-            var data = new FormData();
-            data.append('username', this.username);
-            data.append('password', this.password);
-            data.append('image', this.cardImage);
+            if (this.checkPassword(this.password))
+            {
+                var data = new FormData();
+                data.append('username', this.username);
+                data.append('password', this.password);
+                data.append('image', this.cardImage);
 
-            cardVis.createUser(data)
-            .then((res => {
-                console.log(res);
-            }))
-            .catch(error => {
-                console.log(error);
-                this.msg["formError"] = "Error submitting this form"
-            })
+                cardVis.createUser(data)
+                .then((res => {
+                    res.data;
+                    this.clearForm();
+                    this.msg['formSuccess'] = "Form Submitted Successfully"
+                }))
+                .catch(error => {
+                    console.log(error);
+                    this.msg["formError"] = "Error submitting this form"
+                })
+            }
+        },
+        clearForm() {
+            this.username = '';
+            this.password = '';
+            this.cardImage = '';
+            this.msg = [];
+        },
+        checkPassword(pass) {
+            if (pass.length >= 8) {
+                return true;
+            }
+            else {
+                return false
+            }
+
         }
     }
 }
@@ -92,6 +113,10 @@ span {
     margin: 0px 5px;
     display: inline-block;
     width: 50%;
+}
+
+.validForm {
+    color: rgb(3, 163, 3);
 }
 
 input[type=text], input[type=password] {

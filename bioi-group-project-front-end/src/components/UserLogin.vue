@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import cardVis from "../services/cardVisualizationService.js"
 export default {
     name: 'Login',
     data () {
@@ -22,7 +23,7 @@ export default {
     },
     watch: {
         password(value) {
-            if (value.length < 8) {
+            if (value.length < 8 && value.length != 0) {
                 this.msg['password'] = 'Password must be 8 characters long';
             }
             else {
@@ -31,6 +32,26 @@ export default {
         }
     },
     methods: {
+        submitForm() {
+            if(this.checkPassword(this.password))
+            {
+            var user = {
+                username: this.username,
+                password: this.password
+            }
+
+                cardVis.login(user)
+            }
+        },
+        checkPassword(pass) {
+            if (pass.length >= 8) {
+                return true;
+            }
+            else {
+                return false
+            }
+
+        }
     }
 }
 </script>

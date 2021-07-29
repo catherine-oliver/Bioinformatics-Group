@@ -1,10 +1,11 @@
 export default function authHeader() {
     let user = JSON.parse(localStorage.getItem('user'));
-
-    if (user && user.accessToken) {
-        return { 'x-access-token': user.accessToken,
+    console.log(user)
+    if (user && user.token) {
+        console.log("Found User")
+        return { 'x-access-token': user.token,
                  'username': user.username,
-                 'userId': user.id};
+                 'userId': user.userId};
     }
     else {
         return {};

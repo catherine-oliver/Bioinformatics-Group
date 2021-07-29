@@ -1,14 +1,17 @@
 import flask
-from flask import request, json
+from flask import request, json, jsonify, send_file
 from flask_cors import CORS, cross_origin
 from flaskext.mysql import MySQL
 import jwt
 from datetime import datetime, timedelta
+import io
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['UPLOAD_FOLDER'] = './images/'
+app.config['SECRET_KEY'] = 'csci4830'
 mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'api'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'csci4830'
@@ -21,18 +24,18 @@ mysql.init_app(app)
 conn = mysql.connect()
 cursor = conn.cursor()
 
-def decode(request):
+def decode(params):
     token = None
 
-    if 'x-access-token' in request.headres:
-        token = request.headers['x-access-token']
+    if 'x-access-token' in params:
+        token = params['x-access-token']
 
     if not token:
         return app.response_class(status = 401) 
 
     try:
         data = jwt.decode(token, app.config['SECRET_KEY'])
-        if data == request.headers['userId']:
+        if data == params['userId']:
             return true
     except:
         return app.response_class(status = 401)
@@ -87,37 +90,73 @@ def createUser():
     params = request.form.to_dict()
     files = request.files.to_dict()
     username = params["username"]
-    passowrd = params["password"]
+    password = params["password"]
     img = files["image"]
+    imgPath = app.config['UPLOAD_FOLDER'] + username + '.jpg'
+    img.save(imgPath)
 
-    # Query
-
-    response = app.response_class(
-        status = 200
-    )
-
-    return response
+    try:
+        print('INSERT INTO user (username, password, image_loc) VALUES (\'{0}\',\'{1}\',\'{2}\');'.format(username, password, imgPath))
+        cursor.execute('INSERT INTO user (username, password, image_loc) VALUES (\'{0}\',\'{1}\',\'{2}\');'.format(username, password, imgPath))
+        conn.commit()
+        data = cursor.fetchone()
+        print(data)
+        return app.response_class(status = 200)
+    except (MySQLdb.Error, MySQLdb.Warning) as e:
+        print(e)
+        return None
 
 @app.route('/login', methods=['POST'])
 def login():
+    params = request.form.to_dict()
+    print(params)
+    username = params["username"]
+    password = params["password"]
+    print(username)
+    print(password)
 
-    username = request.args.get("username")
-    password = request.args.get("password")
+    cursor.execute('SELECT user_id, username, password FROM user WHERE username = \'{0}\''.format(username))
+    user = cursor.fetchone()
 
-    # Add Queries
+    print(user)
 
-    token = jwt.encode({
-        'public_id': user.public_id,
-        'exp': datetime.utcnow() + timedelta(minutes = 30)
-    }, app.config['SECRET_KEY'])
+    if user[2] == password:
+        token = jwt.encode({
+            'user_id': user[0],
+            'exp': datetime.utcnow() + timedelta(minutes = 30)
+        }, app.config['SECRET_KEY'])
 
-    return make_response(jsonify({'token': token.decode("UTF-8")}), 201)
+        print(token)
+
+        return app.response_class(
+            response=json.dumps({
+                'token': token,
+                'username': user[1],
+                'userId': user[0]}), 
+            status =201)
+    else:
+        return app.response_class(
+            status = 401
+        )
 
 
-@app.route('/getCard', methods=['POST'])
+@app.route('/getCard', methods=['GET'])
 def getCard():
-    decode(request)
+    print(request.args)
+    params = request.args.to_dict()
+    if (decode(params)):
+        username = params['username']
+        userId = params['userId']
+        cursor.execute("SELECT image_loc FROM user WHERE username = \'{0}\' AND user_id = \'{1}\'".format(username, userId))
+        data = cursor.fetchone()
 
+        if (data):
+            print(data[0])
+            return send_file(data[0], mimetype="image/*")
+        else:
+            return app.response_class(
+            status = 400
+            )
     # Query
 
 

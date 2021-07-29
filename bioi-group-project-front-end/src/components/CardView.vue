@@ -1,23 +1,52 @@
 <template>
-    <div class='formContainer'>
-        <h1 class="sectionTitle">Vaccine Card</h1>
-        <form @submit.prevent='submitForm'>
-            <input name='username' type='text' v-model='username' placeholder="Enter Username" required>
-            <span v-if='msg.password'>{{msg.password}}</span>
-            <input name='password' type='password' v-model='password' placeholder='Enter Password' required>
-            <input type='submit'>
-        </form>    
+    <div class='pageContainer'>
+        <img v-bind:src="this.card">   
     </div>
 </template>
 
 <script>
+import cardVis from "../services/cardVisualizationService.js"
+import router from '../router'
 export default {
     name: 'CardView',
     data () {
         return {
-            card,
-            username
+            card: '',
+            username: ''
         }
+    },
+    created() {
+        cardVis.getCard()
+        .then(res => {
+
+            console.log(res)
+
+            console.log(res.data)
+            console.log(typeof(res.data))
+            /*var byteArray = new Uint8Array(res.data);
+            console.log(byteArray);
+            var str = String.fromCharCode.apply(null, byteArray);
+            console.log(str)
+            var src = "data:image/jpeg;base64," + btoa(str);*/
+
+            var arr = new Uint8Array(res.data)
+            console.log(arr)
+
+            var img = new Blob( [ res.data ], { type: "image/*" } )
+            console.log(img)
+            //var url = window.URL.createObjectURL(img)
+            console.log(window.URL.createObjectURL(res.data))
+            this.card = window.URL.createObjectURL(res.data);
+        })
+        .catch(err => {
+            err;
+            router.push("/login")
+            this.$destory;
+        });
+    },
+    beforeDestroy() {
+        this.username = '';
+        this.card = '';
     },
     watch: {
         password(value) {
@@ -37,49 +66,26 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.sectionTitle {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 25;
-}
 
-.formContainer {
+.pageContainer {
     margin-top: 10px;
 }
 
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px; 
+}
+
+img {
+    height: 50%;
+    width: 50%;
+}
 
 label {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 16px;
 }
 
-span {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    padding: 5px;
-    color: red;
-    margin: 0px 5px;
-    display: inline-block;
-    width: 50%;
-}
-
-input[type=text], input[type=password] {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    padding: 5px;
-    margin: 5px 5px;
-    display: inline-block;
-    width: 50%;
-}
-
-
-input[type=submit] {
-    display: inline-block;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    margin: 5px;
-    margin-left: 47%;
-    padding: 5px;
-}
 
 
 </style>
