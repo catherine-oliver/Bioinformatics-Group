@@ -48,17 +48,17 @@ The vaccine card storage functionality consists of 3 pages that work together to
 - Created the account create page
 - Created the login page
 - Created the vaccine card viewing page
-- Developed the client side manipulation and HTTP request methods
-- Created API handler functions for creating a user, loging in, and grabbing a vaccine card
+- Developed the client-side manipulation and HTTP request methods
+- Created API handler functions for creating a user, logging in, and grabbing a vaccine card
 - Developed a user authentication system using JSON Web Token
-- Created the User table in the datbase
+- Created the User table in the database
 - Created unite tests for
    - Loading the Content of the login page
    - Loading the content of the account creation page
-   - Validating the client side variables reflect what the user entered in input fields including:
+   - Validating the client-side variables reflect what the user entered in input fields including:
      - The username field on the login and account creation pages
      - The password field on the login and account creation pages
-   - Valdiating that entering a password less than 8 characters triggers and error message on the login and account creation pages
+   - Validating that entering a password less than 8 characters triggers and error message on the login and account creation pages
    - Validating that a adding a form error for the account creation page updates the HTML
 ### 07/15/2021
 - Updated README Documentation with description of application
