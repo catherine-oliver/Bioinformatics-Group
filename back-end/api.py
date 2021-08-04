@@ -16,7 +16,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'api'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'csci4830'
 app.config['MYSQL_DATABASE_DB'] = 'vaccineData'
-app.config['MYSQL_DATABASE_HOST'] = 'ec2-3-129-206-138.us-east-2.compute.amazonaws.com'
+app.config['MYSQL_DATABASE_HOST'] = 'ec2-52-14-14-132.us-east-2.compute.amazonaws.com'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 print(app.config)
 mysql.init_app(app)
