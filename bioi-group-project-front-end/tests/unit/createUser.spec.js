@@ -26,17 +26,16 @@ describe('CreateUser.vue', () => {
       expect(wrapper.vm.password).equal('testPassword')
     })
 
-    it("Shows error message if password less than 5 characters", () => {
-      wrapper.find('input[type=password]').setValue("test")
-      wrapper.vm.$nextTick(() => {
+    it("Shows error message if password less than 5 characters", async () => {
+      wrapper.find('input[type=password]').setValue("test");
+      await wrapper.vm.$forceUpdate()
         expect(wrapper.vm.msg['password']).equal('Password must be 8 characters long')
-        expect(wrapper.findAll('span').at(1).isVisible()).to.be.true;
-      })
-    })
-    it("Shows error message if form error is toggled", () => {
-      wrapper.vm.msg['formError'] = "Test"
-      wrapper.vm.$nextTick(() => {
         expect(wrapper.findAll('span').at(0).isVisible()).to.be.true;
-      })
+    })
+    it("Shows error message if form error is toggled", async () => {
+      wrapper.vm.msg["formError"] = "Test";
+      await wrapper.vm.$forceUpdate()
+        console.log(wrapper.html());
+        expect(wrapper.findAll('span').at(0).isVisible()).to.be.true;
     })
   })

@@ -47,6 +47,7 @@ export default {
     beforeDestroy() {
         this.username = '';
         this.card = '';
+        localStorage.clear()
     },
     watch: {
         password(value) {

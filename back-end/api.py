@@ -16,7 +16,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'api'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'csci4830'
 app.config['MYSQL_DATABASE_DB'] = 'vaccineData'
-app.config['MYSQL_DATABASE_HOST'] = 'ec2-3-16-22-47.us-east-2.compute.amazonaws.com'
+app.config['MYSQL_DATABASE_HOST'] = 'ec2-3-129-206-138.us-east-2.compute.amazonaws.com'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 print(app.config)
 mysql.init_app(app)
@@ -43,7 +43,7 @@ def decode(params):
     return app.response_class(status = 400)
         
 
-@app.route('/getVaccineData', methods=['GET'])
+@app.route('/api/getVaccineData', methods=['GET'])
 def getVaccineData():
     state = request.args.get('state', '')
     ages = request.args.get('ages', '')
@@ -84,7 +84,7 @@ def getVaccineData():
     return response
     
 
-@app.route('/createUser', methods=['POST'])
+@app.route('/api/createUser', methods=['POST'])
 def createUser():
 
     params = request.form.to_dict()
@@ -106,7 +106,7 @@ def createUser():
         print(e)
         return None
 
-@app.route('/login', methods=['POST'])
+@app.route('/api/login', methods=['POST'])
 def login():
     params = request.form.to_dict()
     print(params)
@@ -140,7 +140,7 @@ def login():
         )
 
 
-@app.route('/getCard', methods=['GET'])
+@app.route('/api/getCard', methods=['GET'])
 def getCard():
     print(request.args)
     params = request.args.to_dict()

@@ -39,8 +39,13 @@ export default {
                 username: this.username,
                 password: this.password
             }
-
                 cardVis.login(user)
+                .then(res => {
+                    res;
+                })
+                .catch(err => {
+                    err;
+                })
             }
         },
         checkPassword(pass) {

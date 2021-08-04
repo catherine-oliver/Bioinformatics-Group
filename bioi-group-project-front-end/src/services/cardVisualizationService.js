@@ -2,11 +2,12 @@ import axios from 'axios';
 import router from '../router'
 import authHeader from './authHeader'
 
+var local = 'http://127.0.0.1:5000'
 
 export default {
     async createUser(userParams) {
         console.log(userParams)
-        let res = await axios.post(("http://127.0.0.1:5000/createUser"), userParams, { headers: {
+        let res = await axios.post((local + "/api/createUser"), userParams, { headers: {
             'Content-Type': 'multipart/form-data' }
           })
         return res;
@@ -16,7 +17,7 @@ export default {
       var loginData = new FormData()
       loginData.append('username', user.username);
       loginData.append('password', user.password);
-      return axios.post(("http://127.0.0.1:5000/login"), loginData, { headers: {
+      return axios.post((local + "/api/login"), loginData, { headers: {
           'Content-Type': 'multipart/form-data' }
        })
        .then(response => {
@@ -35,7 +36,7 @@ export default {
     async getCard() {
         var head = authHeader()
         console.log(head)
-        let res = await axios.get(("http://127.0.0.1:5000/getCard"), {params: head, responseType: "blob" }, { headers: {  
+        let res = await axios.get((local + "/api/getCard"), {params: head, responseType: "blob" }, { headers: {  
             'Content-Type': 'application/json'}});
 
         return res;
