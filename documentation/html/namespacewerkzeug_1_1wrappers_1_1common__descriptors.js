@@ -1,0 +1,5 @@
+var namespacewerkzeug_1_1wrappers_1_1common__descriptors =
+[
+    [ "CommonRequestDescriptorsMixin", "classwerkzeug_1_1wrappers_1_1common__descriptors_1_1_common_request_descriptors_mixin.html", "classwerkzeug_1_1wrappers_1_1common__descriptors_1_1_common_request_descriptors_mixin" ],
+    [ "CommonResponseDescriptorsMixin", "classwerkzeug_1_1wrappers_1_1common__descriptors_1_1_common_response_descriptors_mixin.html", "classwerkzeug_1_1wrappers_1_1common__descriptors_1_1_common_response_descriptors_mixin" ]
+];

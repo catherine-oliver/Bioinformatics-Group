@@ -1,0 +1,26 @@
+var namespacepip_1_1__vendor_1_1colorama_1_1win32 =
+[
+    [ "CONSOLE_SCREEN_BUFFER_INFO", "classpip_1_1__vendor_1_1colorama_1_1win32_1_1_c_o_n_s_o_l_e___s_c_r_e_e_n___b_u_f_f_e_r___i_n_f_o.html", "classpip_1_1__vendor_1_1colorama_1_1win32_1_1_c_o_n_s_o_l_e___s_c_r_e_e_n___b_u_f_f_e_r___i_n_f_o" ],
+    [ "_winapi_test", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a460d04498bec5c4d89dfedd9a5410beb", null ],
+    [ "FillConsoleOutputAttribute", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a4b50b314551c78876b1c13ad217ff870", null ],
+    [ "FillConsoleOutputCharacter", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a3081852364f4c549911bd8e198f3173c", null ],
+    [ "GetConsoleScreenBufferInfo", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#af1772bab7a04129ce588abcfc63db4fd", null ],
+    [ "SetConsoleCursorPosition", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a4864707416b7461fd98af96750e9c0c4", null ],
+    [ "SetConsoleTextAttribute", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a24a5828e9d832b314b4ea411a1c71897", null ],
+    [ "SetConsoleTitle", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a0a6a755d59fade096e884966fed77803", null ],
+    [ "_FillConsoleOutputAttribute", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#ad475fcfdf4fb812890ec099cce17789a", null ],
+    [ "_FillConsoleOutputCharacterA", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a18f6e2d9d95965a0e67b12a24b0c91dd", null ],
+    [ "_GetConsoleScreenBufferInfo", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a2917d33f2c5b0564d83162682e3cd732", null ],
+    [ "_GetStdHandle", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a020b1ce7ddfe4ec6aacdfc2cfd939974", null ],
+    [ "_SetConsoleCursorPosition", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a30d2c76a2b6bbfddf1d9a5fdcec88bde", null ],
+    [ "_SetConsoleTextAttribute", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a810c2b67d357697621ba248978f9a305", null ],
+    [ "_SetConsoleTitleW", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#ae4b0ade1128217815b842be29a53a199", null ],
+    [ "argtypes", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a079ba87fc2d1aeb156199c0289bb629d", null ],
+    [ "COORD", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#afc2e2673fd8218862c4ed0320c84855a", null ],
+    [ "restype", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a98133acca9490e6845499d945c07b933", null ],
+    [ "SetConsoleTextAttribute", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a4ab345a4d73e42a89c0f51cf34750b85", null ],
+    [ "STDERR", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a22a76243ec3fd8f9b7da62abaf0da323", null ],
+    [ "STDOUT", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a8531af7914607bd879a2c02b12387f61", null ],
+    [ "winapi_test", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a471283912f6da56f4759f47ef2bdfcec", null ],
+    [ "windll", "namespacepip_1_1__vendor_1_1colorama_1_1win32.html#a24cd7c52ced147d7d6118d8d7a5573da", null ]
+];
