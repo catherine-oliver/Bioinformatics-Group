@@ -1,0 +1,28 @@
+var _c_l_i_e_n_t_8py =
+[
+    [ "CAPABILITIES", "_c_l_i_e_n_t_8py.html#ac52f5c6b854d364292dbb2babf179c25", null ],
+    [ "COMPRESS", "_c_l_i_e_n_t_8py.html#a7d7e39f2b09b84a7984a2675841b8fe9", null ],
+    [ "CONNECT_ATTRS", "_c_l_i_e_n_t_8py.html#a614336baea87958d3365f94b30c6dd0f", null ],
+    [ "CONNECT_WITH_DB", "_c_l_i_e_n_t_8py.html#a47faf40bec7e809b9d1506d9ecd82575", null ],
+    [ "DEPRECATE_EOF", "_c_l_i_e_n_t_8py.html#aa85ca81776385e12ef526d8d7167899d", null ],
+    [ "FOUND_ROWS", "_c_l_i_e_n_t_8py.html#a6fd50192f53313d0e172f26857828ebf", null ],
+    [ "HANDLE_EXPIRED_PASSWORDS", "_c_l_i_e_n_t_8py.html#aebe3314c1332adb9f523897035f697ad", null ],
+    [ "IGNORE_SIGPIPE", "_c_l_i_e_n_t_8py.html#a5fdf0b673e5d40729c192702197a5c0c", null ],
+    [ "IGNORE_SPACE", "_c_l_i_e_n_t_8py.html#a32e428bd55af90114d180b6b63e3141d", null ],
+    [ "INTERACTIVE", "_c_l_i_e_n_t_8py.html#a9e597950d4d7d01f68b48b4960021a2f", null ],
+    [ "LOCAL_FILES", "_c_l_i_e_n_t_8py.html#acf814d38fcd0cb6430c168792a70cc00", null ],
+    [ "LONG_FLAG", "_c_l_i_e_n_t_8py.html#aa35195b3fde829da977a3e1c281a9a80", null ],
+    [ "LONG_PASSWORD", "_c_l_i_e_n_t_8py.html#a235a23d6ae93a8d71d986f2261441319", null ],
+    [ "MULTI_RESULTS", "_c_l_i_e_n_t_8py.html#a74de82328903bafe0f2bbc5a50a96172", null ],
+    [ "MULTI_STATEMENTS", "_c_l_i_e_n_t_8py.html#a185a9b71e2cc74720bd95dbd99267360", null ],
+    [ "NO_SCHEMA", "_c_l_i_e_n_t_8py.html#aa363509dc26715a7a33c7136a7ea2adb", null ],
+    [ "ODBC", "_c_l_i_e_n_t_8py.html#a0959193f64f9242662cf888a8f918ae5", null ],
+    [ "PLUGIN_AUTH", "_c_l_i_e_n_t_8py.html#a75dc88ee7befd3f12d84079ad2db6cdc", null ],
+    [ "PLUGIN_AUTH_LENENC_CLIENT_DATA", "_c_l_i_e_n_t_8py.html#a0efc331b340b47b9e2c6249612d6821c", null ],
+    [ "PROTOCOL_41", "_c_l_i_e_n_t_8py.html#a6bf02b8d9362039eb73c4fb255ec067c", null ],
+    [ "PS_MULTI_RESULTS", "_c_l_i_e_n_t_8py.html#a256a3d0fdd5606671c6b399c600b74f5", null ],
+    [ "SECURE_CONNECTION", "_c_l_i_e_n_t_8py.html#a6bf747bf7c96e9785ab15247afd1c3d9", null ],
+    [ "SESSION_TRACK", "_c_l_i_e_n_t_8py.html#a8018998ff5826cfa8f3553dcdf2c3c4a", null ],
+    [ "SSL", "_c_l_i_e_n_t_8py.html#a0627ade327177023024f26b63ece1b11", null ],
+    [ "TRANSACTIONS", "_c_l_i_e_n_t_8py.html#acf6547f4178ac7d6f8eb4f5c59a7387e", null ]
+];
