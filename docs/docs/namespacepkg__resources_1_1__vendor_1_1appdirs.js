@@ -1,0 +1,26 @@
+var namespacepkg__resources_1_1__vendor_1_1appdirs =
+[
+    [ "AppDirs", "classpkg__resources_1_1__vendor_1_1appdirs_1_1_app_dirs.html", "classpkg__resources_1_1__vendor_1_1appdirs_1_1_app_dirs" ],
+    [ "_get_win_folder_from_registry", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a4692a4a475e87e9b6a0d997b94142295", null ],
+    [ "_get_win_folder_with_ctypes", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a0873872484d55813634f37f954b10d25", null ],
+    [ "_get_win_folder_with_jna", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a7d872395de85b1366b70fcec57d452cc", null ],
+    [ "_get_win_folder_with_pywin32", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#ae306cc45d0ce5c90f8dbd2fa89e06ab8", null ],
+    [ "site_config_dir", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a99cc70bd4895bf161b501b38f35bde38", null ],
+    [ "site_data_dir", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#acb43152414eb8ae400a05e490b103f31", null ],
+    [ "user_cache_dir", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a4b66dc639f1ae3dbbd1598ad39196a18", null ],
+    [ "user_config_dir", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a30f0cf6e4ca4ce5a3b7d3c58e5049f05", null ],
+    [ "user_data_dir", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a3b03c46f6524b886b726517c7f76dad4", null ],
+    [ "user_log_dir", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#ae686d8bb6561d9b02bfa56698f8a390f", null ],
+    [ "user_state_dir", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#af56d203eabfadbb69816664209def151", null ],
+    [ "__version__", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#aa7eb93249332d728b35bc9ca19e1a37c", null ],
+    [ "__version_info__", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#af4d3ede9fd4dbd27a69603080c1dd635", null ],
+    [ "_get_win_folder", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a091c156d08c4a419439ed7da8c543614", null ],
+    [ "appauthor", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a59d40ca8fd52cbf79588efb87fbc4f1e", null ],
+    [ "appname", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a28612b51282dfcbcae04f6f4e4891d64", null ],
+    [ "dirs", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#ab0933b9e5527360f72941b5191b9e17e", null ],
+    [ "os_name", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#ab9d5710e6ab8c40420e3f936809374ae", null ],
+    [ "props", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a34a7869abb2f81d4a510493cbf7ef48a", null ],
+    [ "PY3", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#ae53ee26a526cb55b729ca8c0ec0859d7", null ],
+    [ "system", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#aa7c79cebdf72f53f7c2c8c1bbd12a1fb", null ],
+    [ "unicode", "namespacepkg__resources_1_1__vendor_1_1appdirs.html#a3414b2343a3f9dd80c1b36f318c1814b", null ]
+];

@@ -1,0 +1,26 @@
+var pip_2__vendor_2colorama_2win32_8py =
+[
+    [ "CONSOLE_SCREEN_BUFFER_INFO", "classpip_1_1__vendor_1_1colorama_1_1win32_1_1_c_o_n_s_o_l_e___s_c_r_e_e_n___b_u_f_f_e_r___i_n_f_o.html", "classpip_1_1__vendor_1_1colorama_1_1win32_1_1_c_o_n_s_o_l_e___s_c_r_e_e_n___b_u_f_f_e_r___i_n_f_o" ],
+    [ "_winapi_test", "pip_2__vendor_2colorama_2win32_8py.html#a460d04498bec5c4d89dfedd9a5410beb", null ],
+    [ "FillConsoleOutputAttribute", "pip_2__vendor_2colorama_2win32_8py.html#a4b50b314551c78876b1c13ad217ff870", null ],
+    [ "FillConsoleOutputCharacter", "pip_2__vendor_2colorama_2win32_8py.html#a3081852364f4c549911bd8e198f3173c", null ],
+    [ "GetConsoleScreenBufferInfo", "pip_2__vendor_2colorama_2win32_8py.html#af1772bab7a04129ce588abcfc63db4fd", null ],
+    [ "SetConsoleCursorPosition", "pip_2__vendor_2colorama_2win32_8py.html#a4864707416b7461fd98af96750e9c0c4", null ],
+    [ "SetConsoleTextAttribute", "pip_2__vendor_2colorama_2win32_8py.html#a24a5828e9d832b314b4ea411a1c71897", null ],
+    [ "SetConsoleTitle", "pip_2__vendor_2colorama_2win32_8py.html#a0a6a755d59fade096e884966fed77803", null ],
+    [ "_FillConsoleOutputAttribute", "pip_2__vendor_2colorama_2win32_8py.html#ad475fcfdf4fb812890ec099cce17789a", null ],
+    [ "_FillConsoleOutputCharacterA", "pip_2__vendor_2colorama_2win32_8py.html#a18f6e2d9d95965a0e67b12a24b0c91dd", null ],
+    [ "_GetConsoleScreenBufferInfo", "pip_2__vendor_2colorama_2win32_8py.html#a2917d33f2c5b0564d83162682e3cd732", null ],
+    [ "_GetStdHandle", "pip_2__vendor_2colorama_2win32_8py.html#a020b1ce7ddfe4ec6aacdfc2cfd939974", null ],
+    [ "_SetConsoleCursorPosition", "pip_2__vendor_2colorama_2win32_8py.html#a30d2c76a2b6bbfddf1d9a5fdcec88bde", null ],
+    [ "_SetConsoleTextAttribute", "pip_2__vendor_2colorama_2win32_8py.html#a810c2b67d357697621ba248978f9a305", null ],
+    [ "_SetConsoleTitleW", "pip_2__vendor_2colorama_2win32_8py.html#ae4b0ade1128217815b842be29a53a199", null ],
+    [ "argtypes", "pip_2__vendor_2colorama_2win32_8py.html#a079ba87fc2d1aeb156199c0289bb629d", null ],
+    [ "COORD", "pip_2__vendor_2colorama_2win32_8py.html#afc2e2673fd8218862c4ed0320c84855a", null ],
+    [ "restype", "pip_2__vendor_2colorama_2win32_8py.html#a98133acca9490e6845499d945c07b933", null ],
+    [ "SetConsoleTextAttribute", "pip_2__vendor_2colorama_2win32_8py.html#a4ab345a4d73e42a89c0f51cf34750b85", null ],
+    [ "STDERR", "pip_2__vendor_2colorama_2win32_8py.html#a22a76243ec3fd8f9b7da62abaf0da323", null ],
+    [ "STDOUT", "pip_2__vendor_2colorama_2win32_8py.html#a8531af7914607bd879a2c02b12387f61", null ],
+    [ "winapi_test", "pip_2__vendor_2colorama_2win32_8py.html#a471283912f6da56f4759f47ef2bdfcec", null ],
+    [ "windll", "pip_2__vendor_2colorama_2win32_8py.html#a24cd7c52ced147d7d6118d8d7a5573da", null ]
+];
