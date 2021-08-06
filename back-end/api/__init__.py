@@ -104,9 +104,9 @@ def create_app():
             data = cursor.fetchone()
             print(data)
             return app.response_class(status = 200)
-        except (MySQLdb.Error, MySQLdb.Warning) as e:
+        except 
             print(e)
-            return None
+            return app.response_class(status=400)
 
     @app.route('/api/login', methods=['POST'])
     def login():

@@ -35,7 +35,6 @@ describe('CreateUser.vue', () => {
     it("Shows error message if form error is toggled", async () => {
       wrapper.vm.msg["formError"] = "Test";
       await wrapper.vm.$forceUpdate()
-        console.log(wrapper.html());
         expect(wrapper.findAll('span').at(0).isVisible()).to.be.true;
     })
   })
