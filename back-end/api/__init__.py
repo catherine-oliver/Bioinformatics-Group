@@ -104,7 +104,7 @@ def create_app():
             data = cursor.fetchone()
             print(data)
             return app.response_class(status = 200)
-        except 
+        except:
             print(e)
             return app.response_class(status=400)
 
