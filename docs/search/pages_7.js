@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['7_2e0_29400',['7.0',['../md_bioi_group_project_front_end_node_modules_glob_changelog.html',1,'(Global Namespace)'],['../md_bioi_group_project_front_end_node_modules_mocha_node_modules_glob_changelog.html',1,'(Global Namespace)']]],
-  ['7_2e0_2e1_20_2f_202018_2d11_2d07_29401',['7.0.1 / 2018-11-07',['../md_bioi_group_project_front_end_node_modules_fs_extra__c_h_a_n_g_e_l_o_g.html',1,'']]],
-  ['7_2e0_2e5_29402',['7.0.5',['../md_bioi_group_project_front_end_node_modules_postcss_calc__c_h_a_n_g_e_l_o_g.html',1,'']]],
-  ['7_2e1_2e2_20_2f_202021_2d05_2d28_29403',['7.1.2 / 2021-05-28',['../md_bioi_group_project_front_end_node_modules__sinonjs_fake_timers__c_h_a_n_g_e_l_o_g.html',1,'']]],
-  ['7_2e2_2e0_20_282020_2d06_2d17_29_29404',['7.2.0 (2020-06-17)',['../md_bioi_group_project_front_end_node_modules__vue_cli_service_node_modules_acorn_walk__c_h_a_n_g_e_l_o_g.html',1,'(Global Namespace)'],['../md_bioi_group_project_front_end_node_modules_jest_environment_jsdom_node_modules_acorn_walk__c_h_a_n_g_e_l_o_g.html',1,'(Global Namespace)'],['../md_bioi_group_project_front_end_node_modules_webpack_bundle_analyzer_node_modules_acorn_walk__c_h_a_n_g_e_l_o_g.html',1,'(Global Namespace)']]],
-  ['7_2e4_2e0_20_282020_2d08_2d03_29_29405',['7.4.0 (2020-08-03)',['../md_bioi_group_project_front_end_node_modules__vue_cli_service_node_modules_acorn__c_h_a_n_g_e_l_o_g.html',1,'(Global Namespace)'],['../md_bioi_group_project_front_end_node_modules_espree_node_modules_acorn__c_h_a_n_g_e_l_o_g.html',1,'(Global Namespace)'],['../md_bioi_group_project_front_end_node_modules_jest_environment_jsdom_node_modules_acorn_globals_nd771326a93f77700c21ce2925abfe7f0.html',1,'(Global Namespace)'],['../md_bioi_group_project_front_end_node_modules_jsdom_node_modules_acorn__c_h_a_n_g_e_l_o_g.html',1,'(Global Namespace)'],['../md_bioi_group_project_front_end_node_modules_webpack_bundle_analyzer_node_modules_acorn__c_h_a_n_g_e_l_o_g.html',1,'(Global Namespace)']]]
-];
