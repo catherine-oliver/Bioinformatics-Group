@@ -18,6 +18,9 @@
 
 <script>
 import cardVis from "../services/cardVisualizationService.js"
+/**
+ * @displayName Create User
+ */
 export default {
     name: 'CreateUser',
     data () {
@@ -147,3 +150,102 @@ input[type=submit] {
 
 
 </style>
+<docs lang="md">
+### Description
+A form to create a user.
+
+### Imports 
+- Card Visualization Service - "../services/cardVisualizationService.js"
+
+### Data
+
+Username *[String]* - username entered by user
+
+Passord *[String]* - password entered by user
+
+cardImage *[File]* - image file entered by user
+
+msg *[String Array]* - array holding error messages
+
+### Watch Methods
+
+password() - checks the value of the password field upon each update
+
+**Params:**
+        
+value *[String]* - the value entered by the user
+    
+Checks whether the password is less than 8 characters and not equal to 0. If so, it pushes an error message to the msg[] object to be displayed. If not, nothing happens. The not equal to 0 condition ensures that no message will be displayed if input is blank.
+```jsx static
+password(value) {
+            if (value.length < 8 && value.length != 0) {
+                this.msg['password'] = 'Password must be 8 characters long';
+            }
+            else {
+                this.msg['password'] = '';
+            }
+        }
+```
+
+### Methods
+
+onFileUpload() - grabs the file uploaded by the user and saves it to the cardImage data object.
+```jsx static
+onFileUpload() {
+            this.cardImage = this.$refs.card.files[0];
+        }
+```
+
+submitForm() - runs upon submit button click
+
+First, the password to make sure it is greater than 8 characters. Then, the username, password, and image file are added into a form data object. Next, it sends this data to the API through the createUser() method of the card visualization service. If the user is sucessfully added, the form will be cleared and a success message will be added to the msg[] object and displayed. If not, an error message will be added to the msg[] object and displayed.
+```jsx static
+submitForm() {
+            if (this.checkPassword(this.password))
+            {
+                var data = new FormData();
+                data.append('username', this.username);
+                data.append('password', this.password);
+                data.append('image', this.cardImage);
+
+                cardVis.createUser(data)
+                .then((res => {
+                    res.data;
+                    this.clearForm();
+                    this.msg['formSuccess'] = "Form Submitted Successfully"
+                }))
+                .catch(error => {
+                    console.log(error);
+                    this.msg["formError"] = "Error submitting this form"
+                })
+            }
+        }
+```
+
+clearForm() - clears the form inputs by clearing the data objects.
+```jsx static
+clearForm() {
+            this.username = '';
+            this.password = '';
+            this.cardImage = '';
+            this.msg = [];
+        }
+```
+
+checkPassword() - Ensures that the password is greather than 8 characters before submitting. In this check, the password cannot be equal to 0.
+    
+**Params:**
+    
+pass *[string]* - the password to be used
+```jsx static
+checkPassword(pass) {
+            if (pass.length >= 8) {
+                return true;
+            }
+            else {
+                return false
+            }
+
+        }
+```
+</docs>

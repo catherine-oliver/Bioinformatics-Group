@@ -1,3 +1,14 @@
+"""
+@package Flask API
+This code is used to configure a Flask API app.
+
+Dependencies:
+ - Flask
+ - Flask_CORS
+ - JSON WebToken
+ - DateTime
+ - flask-mysql
+"""
 import flask
 from flask import request, json, jsonify, send_file
 from flask_cors import CORS, cross_origin
@@ -8,6 +19,52 @@ import io
 
 
 def create_app():
+    """Generates the API app
+
+    Loads default parameters into the app config. These remain constant no matter what environment they are loaded in.
+     - CORS_HEADER = Content-Type
+     - MYSQL_DATABASE_USER
+     - MYSQL_DATABASE_PASSWORD
+     - MYSQL_DATABASE_HOST
+     - MYSQL_DATABASE_PORT
+
+    Parameters are loaded from environment files by calling settings.py
+
+    @return app - the configured API app.
+
+    The API consists of 4 API hooks:
+
+    - getVaccineData() - GET Request - Located at /api/getVaccineData
+
+        Takes the state abbreviation, age range, and vaccine type query parameters from the request file.
+        Then, these are used to determine what columns from the total_vaccine table to query. Finally, the
+        query string is built and used to query the database. Once the data is returned, it is sent back in the response.
+    
+    - getCard() - GET Request - Located at /api/getCard
+
+        Grabs the header from the request and passes it to the decode method. If the decode method is able to decode the header, the username and userID are used
+        to query the user table for the correpsonding image file location. The image is retrieved from this location in binary format and returned. If there is no existing user, a 400
+        status is returned.
+
+    - createUser() - POST Request - Located at /api/createUser
+
+        Grabs the username, password, and image file from the request object. The image is then saved in the upload location provided in
+        the app configuraton. Then, the username and password are inserted into the database using an INSERT statement. If this is successful, 
+        a 200 status will be returned in the request. Otherwise, a 400 status will be returned.
+
+    - login() - POST Request - Located at /api/login
+
+        Grabs the username and password from the request object's parameters and then uses the username to query the user table.
+        If a user is not found, a 401 status is returned. If the user is found, the stored password and provided password are compared. If they do not match,
+        a 401 status is returned. If the passwords do match, the user's userId is used to generate a JSON webtoken. This token is returned along with the userID, username, and a 201 status.
+
+    Additionally, the API has 1 helper function:
+
+    - decode(param)
+
+        Decodes a JSON webtoken using the secret key. This token can then be comapred to a user ID to validate that a user has logged in.
+        @param param the header of the request containing the token, userID, and username of a logged in user.
+    """
     app = flask.Flask(__name__)
     app.config["DEBUG"] = True
     cors = CORS(app)
@@ -45,15 +102,10 @@ def create_app():
 
     @app.route('/api/getVaccineData', methods=['GET'])
     def getVaccineData():
-        print(request)
-        print(request.args)
         state = request.args.get('state', '')
         ages = request.args.get('ages', '')
         vaxType = request.args.get('vaxType', '')
-        print(state)
-        print(ages)
-        print(vaxType)
-        
+
         colString = 'administered'
 
         if (ages == '12-17'):
@@ -73,9 +125,8 @@ def create_app():
             colString = colString + ', administered_Pfizer'
         else:
             colString = colString + ', administered' 
-        print(colString)
 
-        print('SELECT * FROM {0} WHERE location == \'{1}\''.format(colString, state))
+        #print('SELECT * FROM {0} WHERE location == \'{1}\''.format(colString, state))
         cursor.execute('SELECT {0} FROM total_vaccinations WHERE location = \'{1}\''.format(colString, state))
         data = cursor.fetchone()
 
@@ -88,7 +139,6 @@ def create_app():
 
     @app.route('/api/createUser', methods=['POST'])
     def createUser():
-
         params = request.form.to_dict()
         files = request.files.to_dict()
         username = params["username"]
@@ -111,24 +161,18 @@ def create_app():
     @app.route('/api/login', methods=['POST'])
     def login():
         params = request.form.to_dict()
-        print(params)
         username = params["username"]
         password = params["password"]
-        print(username)
-        print(password)
 
         cursor.execute('SELECT user_id, username, password FROM user WHERE username = \'{0}\''.format(username))
         user = cursor.fetchone()
 
-        print(user)
         if (user):
             if user[2] == password:
                 token = jwt.encode({
                     'user_id': user[0],
                     'exp': datetime.utcnow() + timedelta(minutes = 30)
                 }, app.config['SECRET_KEY'])
-
-                print(token)
 
                 return app.response_class(
                     response=json.dumps({
@@ -148,7 +192,6 @@ def create_app():
 
     @app.route('/api/getCard', methods=['GET'])
     def getCard():
-        print(request.args)
         params = request.args.to_dict()
         if (decode(params)):
             username = params['username']
@@ -157,14 +200,11 @@ def create_app():
             data = cursor.fetchone()
 
             if (data):
-                print(data[0])
                 return send_file(data[0], mimetype="image/*")
             else:
                 return app.response_class(
                 status = 400
                 )
-            
-        # should return error from decode method
 
 
     return app

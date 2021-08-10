@@ -7,35 +7,28 @@
 <script>
 import cardVis from "../services/cardVisualizationService.js"
 import router from '../router'
+/**
+ * @displayName Card View
+ */
 export default {
     name: 'CardView',
     data () {
         return {
             card: '',
-            username: ''
         }
     },
     created() {
         cardVis.getCard()
         .then(res => {
 
-            console.log(res)
-
-            console.log(res.data)
-            console.log(typeof(res.data))
-            /*var byteArray = new Uint8Array(res.data);
-            console.log(byteArray);
-            var str = String.fromCharCode.apply(null, byteArray);
-            console.log(str)
-            var src = "data:image/jpeg;base64," + btoa(str);*/
-
             var arr = new Uint8Array(res.data)
             console.log(arr)
 
             var img = new Blob( [ res.data ], { type: "image/*" } )
             console.log(img)
-            //var url = window.URL.createObjectURL(img)
-            console.log(window.URL.createObjectURL(res.data))
+            /**
+             * Stores the converted image
+             */
             this.card = window.URL.createObjectURL(res.data);
         })
         .catch(err => {
@@ -45,21 +38,8 @@ export default {
         });
     },
     beforeDestroy() {
-        this.username = '';
         this.card = '';
         localStorage.clear()
-    },
-    watch: {
-        password(value) {
-            if (value.length < 8) {
-                this.msg['password'] = 'Password must be 8 characters long';
-            }
-            else {
-                this.msg['password'] = '';
-            }
-        }
-    },
-    methods: {
     }
 }
 </script>
@@ -90,3 +70,51 @@ label {
 
 
 </style>
+
+<docs lang="md">
+### Description
+Displays the vaccine card of a logged-in user
+
+### Imports 
+- Card Visualization Service - "../services/cardVisualizationService.js"
+- Router - "../router"
+
+### Data
+
+Card - Image file retrieved from API
+
+### Methods
+
+created() - runs on creation of page
+    Calls the getCard() function from the cardViewService.
+    Upon successful validation that user is logged in, converts the binary image data recieved into an image file format.
+    Upon failure to validate that user is logged in, destroys the instance and returns to the login page.
+```jsx static
+created() {
+        cardVis.getCard()
+        .then(res => {
+
+            var arr = new Uint8Array(res.data)
+
+            var img = new Blob( [ res.data ], { type: "image/*" } )
+
+            this.card = window.URL.createObjectURL(res.data);
+        })
+        .catch(err => {
+            err;
+            router.push("/login")
+            this.$destory;
+        });
+    }
+```
+
+beforeDestroy() - runs before the page is destroyed
+    Clears any image data from the card data object and clears the browser local storage.
+```jsx static
+beforeDestroy() {
+        this.card = '';
+        localStorage.clear()
+    }
+```
+
+</docs>

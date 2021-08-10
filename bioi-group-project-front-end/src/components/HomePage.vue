@@ -7,15 +7,14 @@
 </template>
 
 <script>
+/**
+ * @displayName Home Page
+ */
 export default {
   name: 'Home',
-  props: {
-    msg: String
-  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .mainTitle {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -23,3 +22,7 @@ export default {
     vertical-align: center;
 }
 </style>
+<docs lang='md'>
+### Description
+The home page of the application. Contains an image of the COVID virus capsule and a title.
+</docs>

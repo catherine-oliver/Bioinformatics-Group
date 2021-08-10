@@ -39,11 +39,11 @@
 </template>
 
 <script>
+/**
+ * @displayName General Info
+ */
 export default {
   name: 'Info',
-  props: {
-    msg: String
-  }
 }
 </script>
 
@@ -75,3 +75,7 @@ export default {
     text-align: left;
 }
 </style>
+<docs lang="md">
+### Description
+The General Information page of the application. Contains sections of static text, an embedded infographic, and an embedded video.
+</docs>
