@@ -5,26 +5,25 @@ DROP table if exists total_vaccinations;
 
 
 
-
-CREATE TABLE total_vaccinations (
+CREATE TABLE total_vaccinations5(
 
 date VARCHAR(255) NOT NULL,
 location VARCHAR(255) NOT NULL,
-distributed INT NOT NULL,
-distributed_Janssen INT NOT NULL,
-distributed_Moderna INT NOT NULL,
-distributed_Pfizer INT NOT NULL,
-distributed_per_100k INT NOT NULL,
-distributed_per_100k_12Plus INT NOT NULL,
-distributed_per_100k_18Plus INT NOT NULL,
-distributed_per_100k_65Plus INT NOT NULL,
-administered INT NOT NULL,
-administered_12Plus INT NOT NULL,
-administered_18Plus INT NOT NULL,
-administered_65Plus INT NOT NULL,
-administered_Janssen INT NOT NULL,
-administered_Moderna INT NOT NULL,
-administered_Pfizer INT NOT NULL,
+distributed INT,
+distributed_Janssen INT,
+distributed_Moderna INT,
+distributed_Pfizer INT,
+distributed_per_100k INT,
+distributed_per_100k_12Plus INT,
+distributed_per_100k_18Plus INT,
+distributed_per_100k_65Plus INT,
+administered INT DEFAULT 0,
+administered_12Plus INT,
+administered_18Plus INT,
+administered_65Plus INT,
+administered_Janssen INT,
+administered_Moderna INT,
+administered_Pfizer INT,
 PRIMARY KEY (date, location));
 
 
