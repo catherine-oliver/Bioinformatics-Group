@@ -143,7 +143,8 @@ The API consists of 4 API hooks:
 
     Takes the state abbreviation, age range, and vaccine type query parameters from the request file.
     Then, these are used to determine what columns from the total_vaccine table to query. Finally, the
-    query string is built and used to query the database. Once the data is returned, it is sent back in the response.
+    query string is built and used to query the database. Once the data is returned, any null values are replaced with
+    "Unreported" and sent back in the response.
 
 - getCard() - GET Request - Located at /api/getCard
 

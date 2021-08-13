@@ -43,7 +43,6 @@ export default {
     },
     methods: {
         onFileUpload() {
-            console.log(this.$refs.card.files[0])
             this.cardImage = this.$refs.card.files[0];
         },
         submitForm() {

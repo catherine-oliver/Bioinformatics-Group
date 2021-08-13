@@ -6,7 +6,6 @@ var local = ''
 
 export default {
     async createUser(userParams) {
-        console.log(userParams)
         let res = await axios.post((local + "/api/createUser"), userParams, { headers: {
             'Content-Type': 'multipart/form-data' }
           })
@@ -21,12 +20,10 @@ export default {
           'Content-Type': 'multipart/form-data' }
        })
        .then(response => {
-        console.log(response)
         if (response.data.token) {
             localStorage.setItem('user', JSON.stringify(response.data));
         }
         router.push('/card')
-        console.log("Success")
         })
         .catch(err => {
             err;
@@ -35,7 +32,6 @@ export default {
 
     async getCard() {
         var head = authHeader()
-        console.log(head)
         let res = await axios.get((local + "/api/getCard"), {params: head, responseType: "blob" }, { headers: {  
             'Content-Type': 'application/json'}});
 

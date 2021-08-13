@@ -22,10 +22,8 @@ export default {
         .then(res => {
 
             var arr = new Uint8Array(res.data)
-            console.log(arr)
 
             var img = new Blob( [ res.data ], { type: "image/*" } )
-            console.log(img)
             /**
              * Stores the converted image
              */

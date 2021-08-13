@@ -88,6 +88,17 @@ def test_get_state_age_vax(client):
     assert resdata[0] == 1892114
     assert resdata[1] == 1891835
     assert resdata[2] == 748709
+
+def test_get_null_data(client):
+    """Tests whether the getVaccineData() API converts Null data to "Unreported".
+    @param client - the api client being tested
+    """
+    data = {'state': 'testNull', 'vaxType': 'All', 'ages': '12-17'}
+    response = getData(client, data)
+    resdata = json.loads(response.get_data(as_text = True))
+
+    print(resdata)
+    assert resdata[0] == "Unreported"
     
 def test_valid_login(client):
     """Tests whether the login() API hook works given a valid user

@@ -51,7 +51,6 @@ export default {
                 const mapId = this.node.attributes["map-id"].value;
                 const title = this.node.attributes["title"].value;
                 const paths = document.getElementsByTagName("path")
-                //console.log(paths)
                 for (let i = 0; i < paths.length; i++)
                 {
                     paths[i].setAttribute('fill', 'white')
@@ -59,7 +58,6 @@ export default {
                 }
                 element.attr('clicked', 'true')
                 element.attr('fill', '#ffd45e');
-                //console.log(element.attr())
                 vue.$emit("map-clicked", {mapId, title});
             })
 
@@ -68,7 +66,6 @@ export default {
             })
 
             element.on('mouseout', function () {
-                //console.log(element.attr('clicked'));
                 if (element.attr('clicked') == 'false'){
                     element.attr('fill', 'white');
                 }
@@ -76,7 +73,6 @@ export default {
         },
         clearSelection: function() {
             const paths = document.getElementsByTagName("path")
-                //console.log(paths)
                 for (let i = 0; i < paths.length; i++)
                 {
                     paths[i].setAttribute('fill', 'white')

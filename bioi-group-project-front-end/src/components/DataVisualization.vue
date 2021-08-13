@@ -105,7 +105,6 @@ export default {
     
             dataVis.getVaccineData(this.vaccineParams)
             .then((res => {
-                console.log(res.data);
                 this.vaxData.totalCount = res.data[0];
                 this.vaxData.ageCount = res.data[1];
                 this.vaxData.vaxTypeCount = res.data[2];

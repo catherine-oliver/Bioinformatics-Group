@@ -38,7 +38,8 @@ def create_app():
 
         Takes the state abbreviation, age range, and vaccine type query parameters from the request file.
         Then, these are used to determine what columns from the total_vaccine table to query. Finally, the
-        query string is built and used to query the database. Once the data is returned, it is sent back in the response.
+        query string is built and used to query the database. Once the data is returned, any null values are replaced with
+        "Unreported" and sent back in the response.
     
     - getCard() - GET Request - Located at /api/getCard
 
@@ -126,9 +127,13 @@ def create_app():
         else:
             colString = colString + ', administered' 
 
-        #print('SELECT * FROM {0} WHERE location == \'{1}\''.format(colString, state))
+        print('SELECT * FROM {0} WHERE location == \'{1}\''.format(colString, state))
         cursor.execute('SELECT {0} FROM total_vaccinations WHERE location = \'{1}\''.format(colString, state))
-        data = cursor.fetchone()
+        data = list(cursor.fetchone())
+        
+        for i in range(0, len(data)):
+            if data[i] == None:
+                data[i] = "Unreported"
 
         response = app.response_class(
             response=json.dumps(data),
