@@ -66,6 +66,7 @@ The vaccine card storage functionality consists of 3 pages that work together to
    - Checks that providing an invalid password and valid username to the login() API hook returns an HTTP 401 status
    - Checks that sending an empty authentication header to the getCard() API hook returns an HTTP 400 status
    - Checks that sending an authentication header containing an invalid access token to the getCard() API hook returns an HTTP 400 status
+- Conducted Manual Application Testing
 ### 07/29/2021
 - Updated README Documentation with description of application
 - Created the account create page
