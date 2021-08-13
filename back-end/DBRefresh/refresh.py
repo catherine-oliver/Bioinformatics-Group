@@ -12,7 +12,7 @@ import requests
 #import MySQLdb
 import mysql.connector
 import json
-import datetime import date
+from datetime import date
 
 # data pulled from https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-Jurisdi/unsk-b7fc
 
