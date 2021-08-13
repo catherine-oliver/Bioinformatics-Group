@@ -36,8 +36,8 @@ def refresh():
 
 	# HTTP request to CDC website (str object)
 	url = "https://data.cdc.gov/resource/unsk-b7fc.json?date="
-	dateQuery = url + str(date.today())
-	requests = requests.get(dateQuery).text
+        query = url + str(date.today())
+	requests = requests.get(query).text
 	record = json.loads(requests)
 
 	# list object
