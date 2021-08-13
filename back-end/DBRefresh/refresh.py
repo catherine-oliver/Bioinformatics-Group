@@ -12,7 +12,7 @@ import requests
 #import MySQLdb
 import mysql.connector
 import json
-from datetime import date
+import datetime
 
 # data pulled from https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-Jurisdi/unsk-b7fc
 
@@ -36,12 +36,11 @@ def refresh():
 
 	# HTTP request to CDC website (str object)
 	url = "https://data.cdc.gov/resource/unsk-b7fc.json?date="
-        query = url + str(date.today())
-	requests = requests.get(query).text
-	record = json.loads(requests)
-
-	# list object
-	record = json.loads(requests)
+	currDay = str(datetime.datetime.today().date())
+	print(currDay)
+	query = url + str(currDay)
+	request = requests.get(query).text
+	record = json.loads(request)
 
 
 	# the loop iterates through the json string, matching each attribute key with
