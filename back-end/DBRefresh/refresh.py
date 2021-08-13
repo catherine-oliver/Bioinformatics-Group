@@ -48,7 +48,7 @@ while x != len(record):
 	if  'distributed_per_100k_12plus' in record[x].keys():
 		distributed_per_100k_12plus = record[x]['distributed_per_100k_12plus']
 	else:
-		distributed_per_100k_12plus = ''
+		distributed_per_100k_12plus = None
 
 	distributed_per_100k_18plus = record[x]['distributed_per_100k_18plus']
 	distributed_per_100k_65plus = record[x]['distributed_per_100k_65plus']
@@ -58,7 +58,7 @@ while x != len(record):
 	if 'administered_12plus' in record[x].keys():
 		administered_12plus = record[x]['administered_12plus']
 	else:
-		administered_12plus = ''
+		administered_12plus = None
 	administered_18plus = record[x]['administered_18plus']
 	administered_65plus = record[x]['administered_65plus']
 	administered_moderna = record[x]['administered_moderna']
