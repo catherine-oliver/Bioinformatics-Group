@@ -6,7 +6,10 @@ The purpose of our COVID-19 dashboard is to help make information about the vacc
 
 ## Usage
 
-In future releases, we plan to have our application hosted on a server, however it is running locally for now. To run the application, first clone the git repository:
+**Our application is deployed and now available:
+[COVID-19 Vaccine Dashboard Site](http://ec2-52-14-14-132.us-east-2.compute.amazonaws.com/)**
+
+To run the application locally, first clone the git repository:
 
 ```
 git clone https://github.com/catherine-oliver/Bioinformatics-Group.git
@@ -25,8 +28,12 @@ The back-end api can be started by navigating to the back-end directory, and run
 ```
 source flaskenv/Scripts/activate
 set FLASK_APP=api.py
-python -m flask run
+python -m run.py
 ```
+
+## Documentation
+
+Our documentation can be found on our github pages [here](https://catherine-oliver.github.io/Bioinformatics-Group/)
 
 ## Functionality
 ### General Information
@@ -43,6 +50,22 @@ The vaccine card storage functionality consists of 3 pages that work together to
 
 
 ## Release Notes
+### 08/13/2021
+- Created the database refresh functionality
+- Modified API to support different environments (test/dev and production)
+- Automated the deployment of our application to an AWS instance using Jenkins
+- Developed automated documentation (https://catherine-oliver.github.io/Bioinformatics-Group/)
+   - Front-End and Back-end Documentation completed
+- Wrote additional unit tests:
+   - Validating that null data returned in the getVaccineData() API hook is changed to "Unreported"
+   - Validating that passing a state only to the getVaccineData() API hook returns the correct data
+   - Validating that passing a state and age range to the getVaccineData() API hook returns valid values for both
+   - Validating that passing a state, age range, and vaccine type to the getVaccineData API hook returns valid data for all fields.
+   - Checks that providing valid login credentials to the login() API hook returns an HTTP 200 status
+   - Checks that providing an invalid username to the login() API hook returns an HTTP 401 status
+   - Checks that providing an invalid password and valid username to the login() API hook returns an HTTP 401 status
+   - Checks that sending an empty authentication header to the getCard() API hook returns an HTTP 400 status
+   - Checks that sending an authentication header containing an invalid access token to the getCard() API hook returns an HTTP 400 status
 ### 07/29/2021
 - Updated README Documentation with description of application
 - Created the account create page
